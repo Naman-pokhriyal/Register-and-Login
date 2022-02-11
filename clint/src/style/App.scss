@@ -1,0 +1,36 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  .register,
+  .login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    input {
+      width: 200px;
+    }
+    .submit {
+      margin: 10px;
+    }
+  }
+  .allowed {
+    color: rgb(4, 129, 67);
+  }
+  .notallowed {
+    color: rgb(250, 25, 70);
+  }
+}
+.register {
+  background-color: rgb(207, 188, 181);
+  height: 50vh;
+}
+.login {
+  height: 50vh;
+  background-color: rgb(190, 221, 211);
+}
