@@ -17,4 +17,4 @@
 
 <p align=center >Do not forget to install node and mysql on your system if this is your first time. Go to the server.js and config the mysql connection with your password and database name. The queries with mysql are to a table 'users', do change that in you have created a table with a diffrent name.</p>
 
-<h2>Enjot the project. Hope you find it useful</h2>
+<h2>Enjoy the project. Hope you find it useful</h2>
