@@ -7,13 +7,14 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+// Change the MySQL connection configs
 const insert = () => {
   const db = mysql.createConnection({
-    host: "sql6.freesqldatabase.com",
-    user: "sql6467743",
-    password: "HxJA4LYkRu",
-    database: "sql6467743",
-    port: 3306,
+    host: "localhost",
+    user: "root",
+    password: "Password",
+    database: "Database-name",
   });
 
   app.post("/register", async (req, res) => {
@@ -23,8 +24,8 @@ const insert = () => {
     const teacher = req.body.teacher;
     if (name.length > 0 && email.length > 0 && password.length > 0) {
       await db.query(
-        "INSERT INTO users (name, email, password, teacher) VALUES (?,?,?,?)",
-        [name, email, password, teacher],
+        "INSERT INTO users (name, email, password) VALUES (?,?,?)",
+        [name, email, password],
         (err, result) => {
           if (err) {
             res.send(err);
@@ -53,45 +54,6 @@ const insert = () => {
           console.log(result);
           res.send({ sqlMessage: "Verified" });
         } else res.send({ sqlMessage: "Incorrect Username/Password" });
-      }
-    );
-  });
-
-  app.get("/homet", async (req, res) => {
-    await db.query("SELECT * FROM courses", (err, result) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.send(result);
-      }
-    });
-  });
-  app.post("/homet", async (req, res) => {
-    const name = req.body.name;
-
-    await db.query(
-      "INSERT INTO courses (name) VALUES (?)",
-      [name],
-      (err, result) => {
-        if (err) {
-          res.send(err);
-        } else {
-          res.send(result);
-        }
-      }
-    );
-  });
-  app.post("/hometx", async (req, res) => {
-    const name = req.body.name;
-    await db.query(
-      "DELETE FROM courses WHERE name = ?;",
-      [name],
-      (err, result) => {
-        if (err) {
-          res.send(err);
-        } else {
-          res.send(result);
-        }
       }
     );
   });

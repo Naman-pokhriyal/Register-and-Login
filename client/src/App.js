@@ -16,6 +16,7 @@ function App() {
           <Route exact path="/" element={<Navigate to="/register" />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/home" element={<h1>Home Page</h1>} />
         </Routes>
       </Router>
     </div>

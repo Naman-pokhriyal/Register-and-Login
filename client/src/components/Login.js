@@ -17,7 +17,7 @@ export default function Login() {
     }).then((response) => {
       setmsg(response.data.sqlMessage);
       if (response.data.sqlMessage === "Verified") {
-        navigate("/homes");
+        navigate("/home");
       }
     });
   };

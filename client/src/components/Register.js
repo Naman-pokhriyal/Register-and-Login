@@ -8,7 +8,6 @@ export default function Register() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const [teach, setteach] = useState(false);
   const [msg, setmsg] = useState("");
 
   const registerCall = (e) => {
@@ -17,7 +16,6 @@ export default function Register() {
       name: name,
       email: email,
       password: password,
-      teacher: teach,
     }).then((response) => {
       setmsg(response.data.sqlMessage);
       if (response.data.sqlMessage === "") {
@@ -58,24 +56,6 @@ export default function Register() {
             setpassword(e.target.value);
           }}
         ></input>
-        <div>
-          <label>Are you a teacher</label>
-          <input
-            type="checkbox"
-            name="check"
-            id="teacher"
-            // onClick={() => {
-            //   setteach(true);
-            // }}
-            onClick={(e) => {
-              if (e.target.checked) {
-                setteach(true);
-                return;
-              }
-              setteach(false);
-            }}
-          />
-        </div>
         <button type="submit" className="submit">
           Sign Up
         </button>
